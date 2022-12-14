@@ -14,7 +14,8 @@ const connect = function () {
     });
   
     conn.on("connect", () => {
-      console.log("Connected to the server");
+      console.log("Successfully connected to game server");
+      conn.write("Name: SNK");
     });
     return conn;
   };
