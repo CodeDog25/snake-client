@@ -1,12 +1,9 @@
 let connection;
 
 const handleUserInput = function (key) {
-    if (key = "\u0003") {
-        console.log("Quit");
-        process.exit();
-    }
+    
     if (key === "w") {
-        connection.write("Move: up");
+        connection.write("Move: up");      
     }
     if (key === "a") {
         connection.write("Move: left");
@@ -17,6 +14,17 @@ const handleUserInput = function (key) {
     if (key === "d") {
         connection.write("Move: right");
     }
+    if (key === "u") {
+        connection.write("Say: YOLO");
+    }
+    if (key === "h") {
+        connection.write("Say: Hellooo");
+    }
+    if (key = "\u0003") {
+        console.log("Quit");
+        process.exit();
+    }
+    
 };
 
 
@@ -26,7 +34,7 @@ const setupInput = function(conn) {
     stdin.setRawMode(true);
     stdin.setEncoding('utf8');
     stdin.resume();
-    stdin.on("data", key => handleUserInput(key));
+    stdin.on("data", handleUserInput);
     return stdin;
   };
   
